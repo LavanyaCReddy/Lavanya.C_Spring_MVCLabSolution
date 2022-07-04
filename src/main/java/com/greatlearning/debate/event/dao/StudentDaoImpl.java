@@ -34,17 +34,17 @@ public class StudentDaoImpl implements IStudentDao {
 	
 @Override
 public Student insertStudentsDetails(Student student) {
-		//Transaction txn = session.beginTransaction();
+		Transaction txn = session.beginTransaction();
 		session.save(student);
 		System.out.println("student info saved." + student);
-		//txn.commit();
+		txn.commit();
 		return student;
 	}
 
 @Override
 	public Student updateStudentsDetails(Student student) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return student;
 	}
 
 
