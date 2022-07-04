@@ -6,17 +6,16 @@ import com.greatlearning.debate.event.entity.Student;
 
 public interface IStudentDao {
 
-	Student insertStudentDetails(Student student);
+	Student insertStudentsDetails(Student student);
 
-	public Student updateStudentDetails(Student student);
+	public Student updateStudentsDetails(Student student);
 
-	public boolean deleteStudentDetails(int studentId);
+	public boolean deleteStudentsDetails(int studentId);
 
 	public Student findStudent(int studentId);
 
-	public List<Student> retrieveStudentDetails();
+	public List<Student> retrieveStudentsDetails();
 
-	Student insertStudentsDetails(Student student);
-
+	
 
 }

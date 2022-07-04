@@ -30,7 +30,9 @@ public class StudentDaoImpl implements IStudentDao {
 			session = sessionFactory.openSession();
 		}
 	}
-
+	
+	
+@Override
 public Student insertStudentsDetails(Student student) {
 		//Transaction txn = session.beginTransaction();
 		session.save(student);
@@ -39,44 +41,46 @@ public Student insertStudentsDetails(Student student) {
 		return student;
 	}
 
-	public Student updateStudentDetails(Student student) {
+@Override
+	public Student updateStudentsDetails(Student student) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public boolean deleteStudentDetails(int studentId) {
-		// TODO Auto-generated method stub
+
+@Override
+	public boolean deleteStudentsDetails(int studentId) {
+Student retrievedObject=findStudent(studentId);
+		
+		session.getTransaction().begin();
+		System.out.println("deleting student country is: "+retrievedObject.getCountry());
+		session.delete(retrievedObject);
+		
+		session.getTransaction().commit();
+		
+		if(retrievedObject!=null) {
+			return true;
+		}
 		return false;
+		
+		
 	}
 
+@Override
 	public Student findStudent(int studentId) {
-		// TODO Auto-generated method stub
-		return null;
+	
+		return session.find(Student.class, new Integer(studentId));
 	}
 
-	public List<Student> retrievalStudentDetails() {
-		// TODO Auto-generated method stub
-		return null;
+@Override
+public List<Student> retrieveStudentsDetails() {
+		return session.createQuery("Select s from Student s", Student.class).getResultList();
 	}
+	
 
-
-	public List<Student> retrieveStudentDetails() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Student insertStudentDetails(Student student) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	//@Override
-	//public List<Student> retrieveStudentDetails() {
-		// TODO Auto-generated method stub
-		//return null;
-	//}
 
 	
+
+
 	
 }

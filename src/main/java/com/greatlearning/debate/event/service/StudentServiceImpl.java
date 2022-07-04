@@ -3,46 +3,49 @@ package com.greatlearning.debate.event.service;
 import java.util.List;
 
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
 
 import com.greatlearning.debate.event.dao.IStudentDao;
 import com.greatlearning.debate.event.entity.Student;
 
 
+import jakarta.transaction.Transactional;
+
+
 @Service
 @Transactional
 public class StudentServiceImpl implements IStudentService {
+	
 @Autowired
 	private IStudentDao studentDao;
 
 	public Student add(Student student) {
-		// TODO Auto-generated method stub
+		
 		return studentDao.insertStudentsDetails(student);
 	}
 
 	public Student update(Student student) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return studentDao.updateStudentsDetails(student);
 	}
 
 	public Student getStudent(int studentId) {
-		// TODO Auto-generated method stub
-		return null;
+	
+		return studentDao.findStudent(studentId);
 	}
 
 
 	public boolean deleteStudent(int studentId) {
-		// TODO Auto-generated method stub
-		return false;
+
+		return studentDao.deleteStudentsDetails(studentId);
 	}
 
 
 	public List<Student> getAllStudents() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return studentDao.retrieveStudentsDetails();
 	}
 
 }

@@ -2,11 +2,13 @@ package com.greatlearning.debate.event.service;
 
 import java.util.List;
 
+
+
 import com.greatlearning.debate.event.entity.Student;
 
 public interface IStudentService {
 
-	Student add(Student student);
+	public Student add(Student student);
 
 	public Student update(Student student);
 
